@@ -1,0 +1,54 @@
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Entornos virtuales
+.env
+.venv
+.venv311/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# Archivos de datos grandes (opcional)
+# datos/raw/*.csv
+# datos/procesados/*.csv
+
+# Modelos grandes (opcional)
+# modelos/*.pkl
+
+# Reportes HTML grandes
+datos/profiling/*.html
+
+# Archivos temporales
+*.tmp
+*.temp
+*.cache
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Variables de entorno
+.env
+.env.local
+.env.production
