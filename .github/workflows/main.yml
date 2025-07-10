@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write  # Permiso necesario para realizar push
+  contents: write  # Permiso necesario para realizar push automático
 
 jobs:
   build:
@@ -23,28 +23,29 @@ jobs:
       - name: Install dependencies
         run: |
           if [ -f requirements.txt ]; then
-            echo "Instalando dependencias desde requirements.txt..."
+            echo "📦 Instalando dependencias..."
             pip install -r requirements.txt
           else
             echo "⚠️ No se encontró requirements.txt, saltando instalación."
           fi
 
-      - name: Debug & run stats.py
+      - name: Ejecutar stats.py
         run: |
-          echo "🔎 Ejecutando Roadmap/stats.py con Python 3.11"
-          python ./Roadmap/stats.py || echo "⚠️ El script falló, pero el flujo continúa"
+          echo "📊 Ejecutando stats.py desde la raíz..."
+          python ./stats.py || echo "⚠️ El script falló, pero el flujo continúa"
 
-      - name: Verificar cambios realizados
+      - name: Mostrar estado del repositorio
         run: |
-          echo "🗂️ Archivos modificados:"
+          echo "📂 Verificando cambios realizados..."
           git status
-          echo "📁 Contenido de Roadmap/:"
-          ls Roadmap/
+          echo "📁 Archivos en la raíz:"
+          ls -la
 
-      - name: Commit and push changes
+      - name: Commit y push de cambios
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update stats
           skip_dirty_check: true
           push: true
+
 
