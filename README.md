@@ -13,6 +13,7 @@ Un pipeline completo de Machine Learning para predecir el rendimiento académico
 ## 🚀 Inicio Rápido
 
 ### Requisitos Previos
+
 - Python 3.11+ (recomendado para compatibilidad completa)
 - pip
 
@@ -20,8 +21,8 @@ Un pipeline completo de Machine Learning para predecir el rendimiento académico
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/tu-usuario/proyecto-integrador-ml.git
-cd proyecto-integrador-ml
+git clone "https://github.com/Jenaru0/Machine-Learning.git"
+cd "machine learning"
 
 # Crear entorno virtual
 python -m venv venv
@@ -78,24 +79,28 @@ proyecto-integrador-ml/
 ## 📊 Funcionalidades
 
 ### Análisis Exploratorio (EDA)
+
 - Estadísticas descriptivas completas
 - Análisis de correlaciones
 - Detección de valores atípicos
 - Reporte HTML interactivo con ydata-profiling
 
 ### Preprocesamiento
+
 - Limpieza de datos automatizada
 - Codificación de variables categóricas
 - Escalado de características
 - División train/test
 
 ### Modelado
+
 - Regresión Ridge con optimización de hiperparámetros
 - Validación cruzada
 - Métricas de evaluación completas
 - Guardado automático del modelo
 
 ### Predicción
+
 - Predicciones sobre nuevos datos
 - Métricas de rendimiento
 - Visualización de resultados
@@ -103,6 +108,7 @@ proyecto-integrador-ml/
 ## 🔧 Configuración
 
 Todas las configuraciones se encuentran en `src/config.py`:
+
 - Rutas de archivos
 - Parámetros del modelo
 - Configuración de logging
@@ -117,6 +123,7 @@ Todas las configuraciones se encuentran en `src/config.py`:
 ## 📈 Resultados
 
 El pipeline genera:
+
 - **Reporte EDA**: `datos/profiling/reporte_eda.html`
 - **Modelo entrenado**: `modelos/ridge_alpha_10.pkl`
 - **Scaler**: `modelos/scaler.pkl`
