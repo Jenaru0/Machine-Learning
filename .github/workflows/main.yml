@@ -5,11 +5,12 @@ on:
     branches: [main]
 
 permissions:
-  contents: write  # PERMISO NECESARIO PARA PUSH
+  contents: write  # Permiso necesario para realizar push
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -22,18 +23,28 @@ jobs:
       - name: Install dependencies
         run: |
           if [ -f requirements.txt ]; then
+            echo "Instalando dependencias desde requirements.txt..."
             pip install -r requirements.txt
           else
-            echo "No se encontró requirements.txt, saltando instalación."
+            echo "⚠️ No se encontró requirements.txt, saltando instalación."
           fi
 
-      - name: Debug stats.py
+      - name: Debug & run stats.py
         run: |
-          echo "Ejecutando stats.py con Python 3.11"
-          python ./Roadmap/stats.py || echo "⚠️ Falló el script pero el flujo continúa"
+          echo "🔎 Ejecutando Roadmap/stats.py con Python 3.11"
+          python ./Roadmap/stats.py || echo "⚠️ El script falló, pero el flujo continúa"
+
+      - name: Verificar cambios realizados
+        run: |
+          echo "🗂️ Archivos modificados:"
+          git status
+          echo "📁 Contenido de Roadmap/:"
+          ls Roadmap/
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update stats
           skip_dirty_check: true
+          push: true
+
