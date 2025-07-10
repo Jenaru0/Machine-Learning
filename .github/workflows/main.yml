@@ -1,0 +1,39 @@
+name: Stats
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write  # PERMISO NECESARIO PARA PUSH
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "No se encontró requirements.txt, saltando instalación."
+          fi
+
+      - name: Debug stats.py
+        run: |
+          echo "Ejecutando stats.py con Python 3.11"
+          python ./Roadmap/stats.py || echo "⚠️ Falló el script pero el flujo continúa"
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update stats
+          skip_dirty_check: true
