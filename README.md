@@ -19,12 +19,12 @@ Este proyecto implementa un **pipeline completo de Machine Learning** para prede
 
 ## 🏆 Resultados Principales
 
-| Modelo | R² Score | RMSE | Status | Uso Recomendado |
-|--------|----------|------|--------|-----------------|
-| **Ridge Regression** ⭐ | 0.6926 | 2.055 | Principal | Entrega académica |
-| **SVR (RBF)** 🥇 | 0.7561 | 1.831 | Avanzado | Aplicación real |
-| Lasso Regression | 0.6834 | 2.088 | Base | Selección features |
-| Linear Regression | 0.6798 | 2.098 | Baseline | Comparación |
+| Modelo                  | R² Score | RMSE  | Status    | Uso Recomendado    |
+| ----------------------- | -------- | ----- | --------- | ------------------ |
+| **Ridge Regression** ⭐ | 0.6926   | 2.055 | Principal | Entrega académica  |
+| **SVR (RBF)** 🥇        | 0.7561   | 1.831 | Avanzado  | Aplicación real    |
+| Lasso Regression        | 0.6834   | 2.088 | Base      | Selección features |
+| Linear Regression       | 0.6798   | 2.098 | Baseline  | Comparación        |
 
 > **💡 Insight Clave**: SVR logra **+9% mejor performance** que Ridge, pero Ridge mantiene **interpretabilidad superior** para contexto académico.
 
@@ -46,11 +46,11 @@ Este proyecto implementa un **pipeline completo de Machine Learning** para prede
 
 ### 🎯 Variables Más Importantes
 
-| Feature | Importancia | Descripción |
-|---------|-------------|-------------|
-| `Attendance` | 2.29 | Porcentaje de asistencia a clases |
-| `Hours_Studied` | 1.57 | Horas de estudio semanales |
-| `Previous_Scores` | 0.81 | Puntajes académicos previos |
+| Feature           | Importancia | Descripción                       |
+| ----------------- | ----------- | --------------------------------- |
+| `Attendance`      | 2.29        | Porcentaje de asistencia a clases |
+| `Hours_Studied`   | 1.57        | Horas de estudio semanales        |
+| `Previous_Scores` | 0.81        | Puntajes académicos previos       |
 
 ## 🚀 Quick Start
 
@@ -131,15 +131,15 @@ Machine-Learning/
 
 ## 🛠️ Tech Stack
 
-| Categoría | Tecnología | Versión | Propósito |
-|-----------|------------|---------|-----------|
-| **Lenguaje** | Python | 3.11+ | Desarrollo principal |
-| **ML Framework** | scikit-learn | 1.3+ | Modelos y pipeline |
-| **Data Processing** | pandas | 2.0+ | Manipulación de datos |
-| **Numerical** | numpy | 1.24+ | Computación numérica |
-| **EDA** | ydata-profiling | 4.0+ | Análisis exploratorio |
-| **Advanced ML** | xgboost | 1.7+ | Gradient boosting |
-| **Serialization** | joblib | 1.3+ | Persistencia de modelos |
+| Categoría           | Tecnología      | Versión | Propósito               |
+| ------------------- | --------------- | ------- | ----------------------- |
+| **Lenguaje**        | Python          | 3.11+   | Desarrollo principal    |
+| **ML Framework**    | scikit-learn    | 1.3+    | Modelos y pipeline      |
+| **Data Processing** | pandas          | 2.0+    | Manipulación de datos   |
+| **Numerical**       | numpy           | 1.24+   | Computación numérica    |
+| **EDA**             | ydata-profiling | 4.0+    | Análisis exploratorio   |
+| **Advanced ML**     | xgboost         | 1.7+    | Gradient boosting       |
+| **Serialization**   | joblib          | 1.3+    | Persistencia de modelos |
 
 ## 📈 Pipeline de ML
 
@@ -152,7 +152,7 @@ graph TD
     E --> F[📈 Validation]
     F --> G[💾 Model Saving]
     G --> H[🎯 Predictions]
-    
+
     E --> I[📚 Base Models]
     E --> J[🚀 Advanced Models]
     I --> K[Ridge/Lasso/Linear]
@@ -169,12 +169,14 @@ graph TD
 ### 🎯 Estrategia de Modelos
 
 **Enfoque Académico** ✅
+
 - Ridge Regression como modelo principal
 - Cumple guías universitarias 100%
 - Interpretabilidad completa
 - Riesgo académico: 0%
 
 **Extensión Técnica** 🚀
+
 - SVR para demostrar expertise avanzado
 - +9% mejora en performance
 - Exploración de modelos no lineales
@@ -210,21 +212,23 @@ python ejecutar_pipeline.py
 
 ## 📋 Métricas de Evaluación
 
-| Métrica | Ridge | SVR | Interpretación |
-|---------|-------|-----|----------------|
-| **R² Score** | 0.6926 | 0.7561 | % varianza explicada |
-| **RMSE** | 2.055 | 1.831 | Error promedio en puntos |
-| **MAE** | 1.634 | 1.412 | Error absoluto promedio |
-| **Training Time** | 0.02s | 0.15s | Tiempo de entrenamiento |
+| Métrica           | Ridge  | SVR    | Interpretación           |
+| ----------------- | ------ | ------ | ------------------------ |
+| **R² Score**      | 0.6926 | 0.7561 | % varianza explicada     |
+| **RMSE**          | 2.055  | 1.831  | Error promedio en puntos |
+| **MAE**           | 1.634  | 1.412  | Error absoluto promedio  |
+| **Training Time** | 0.02s  | 0.15s  | Tiempo de entrenamiento  |
 
 ## 🎯 Casos de Uso
 
 ### 🎓 Académico
+
 - **Modelo**: Ridge Regression
 - **Justificación**: Cumple guías, interpretable, estable
 - **Presentación**: Enfoque en coeficientes y explicabilidad
 
 ### 🏢 Profesional
+
 - **Modelo**: SVR (RBF)
 - **Justificación**: Máxima precisión, robustez, escalabilidad
 - **Aplicación**: Sistemas de recomendación estudiantil
@@ -235,13 +239,13 @@ Ver [CONTRIBUTING.md](docs/CONTRIBUTING.md) para guías detalladas.
 
 ### 👥 Equipo de Desarrollo
 
-| Nombre | Rol | Contribución |
-|--------|-----|--------------|
-| **Candela Vargas Aitor Baruc** | ML Engineer | Pipeline y modelos |
-| **Godoy Bautista Denilson Miguel** | Data Scientist | EDA y análisis |
-| **Molina Lazaro Eduardo Jeampier** | Software Engineer | Arquitectura |
-| **Napanga Ruiz Jhonatan Jesus** | DevOps | Automatización |
-| **Quispe Romani Angela Isabel** | Product Owner | Requisitos |
+| Nombre                             | Rol                             | Contribución                                                 |
+| ---------------------------------- | ------------------------------- | ------------------------------------------------------------ |
+| **Napanga Ruiz Jhonatan Jesus**    | **Tech Lead & Project Manager** | **Arquitectura completa, pipeline ML, gestión del proyecto** |
+| **Candela Vargas Aitor Baruc**     | ML Engineer                     | Implementación de modelos                                    |
+| **Godoy Bautista Denilson Miguel** | Data Scientist                  | Análisis exploratorio de datos                               |
+| **Molina Lazaro Eduardo Jeampier** | Quality Assurance               | Testing y validación                                         |
+| **Quispe Romani Angela Isabel**    | Software Engineer               | Desarrollo de módulos                                        |
 
 ## 📄 Licencia
 

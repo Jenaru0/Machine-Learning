@@ -18,22 +18,22 @@ StudentPerformanceFactors.csv
 
 ## 🔧 Módulos del Sistema
 
-| Módulo | Responsabilidad | Input | Output |
-|--------|----------------|-------|--------|
-| `00_config.py` | Configuración global | - | Parámetros del sistema |
-| `00_utils.py` | Funciones compartidas | - | Utilidades comunes |
-| `01_eda.py` | Análisis exploratorio | CSV crudo | Reporte HTML + insights |
-| `02_preprocesamiento.py` | Limpieza de datos | CSV crudo | Train/test procesados |
-| `03_entrenar_modelo.py` | Entrenamiento base | Datos procesados | Modelo Ridge + métricas |
-| `04_predecir.py` | Predicciones | Modelo + datos | CSV predicciones |
-| `05_comparar_modelos_avanzados.py` | Modelos avanzados | Datos procesados | Comparación + SVR |
+| Módulo                             | Responsabilidad       | Input            | Output                  |
+| ---------------------------------- | --------------------- | ---------------- | ----------------------- |
+| `00_config.py`                     | Configuración global  | -                | Parámetros del sistema  |
+| `00_utils.py`                      | Funciones compartidas | -                | Utilidades comunes      |
+| `01_eda.py`                        | Análisis exploratorio | CSV crudo        | Reporte HTML + insights |
+| `02_preprocesamiento.py`           | Limpieza de datos     | CSV crudo        | Train/test procesados   |
+| `03_entrenar_modelo.py`            | Entrenamiento base    | Datos procesados | Modelo Ridge + métricas |
+| `04_predecir.py`                   | Predicciones          | Modelo + datos   | CSV predicciones        |
+| `05_comparar_modelos_avanzados.py` | Modelos avanzados     | Datos procesados | Comparación + SVR       |
 
 ## 🎯 Decisiones de Diseño
 
 ### ¿Por qué Pipeline Modular?
 
 - **Mantenibilidad**: Cada módulo tiene una responsabilidad específica
-- **Testabilidad**: Fácil testing de componentes individuales  
+- **Testabilidad**: Fácil testing de componentes individuales
 - **Flexibilidad**: Posibilidad de ejecutar partes específicas
 - **Académico**: Sigue estructura de guías universitarias
 
@@ -60,6 +60,7 @@ XX_nombre_modulo.py  # Donde XX = orden de ejecución
 ```
 
 ### Datos
+
 ```
 datos/
 ├── raw/              # Datos originales (no modificar)
@@ -68,6 +69,7 @@ datos/
 ```
 
 ### Modelos
+
 ```
 modelos/
 ├── ridge_alpha_10.pkl           # Modelo principal académico
@@ -91,7 +93,7 @@ modelos/
 ### Guías Universitarias Cumplidas
 
 - ✅ **Guía 1**: EDA completo con ydata-profiling
-- ✅ **Guía 2**: Preprocesamiento robusto 
+- ✅ **Guía 2**: Preprocesamiento robusto
 - ✅ **Guía 3**: Ridge, Lasso, Linear implementados
 - ✅ **Guía 4**: Validación cruzada e hiperparámetros
 
