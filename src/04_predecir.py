@@ -16,20 +16,22 @@ from pathlib import Path
 from typing import Optional
 
 # Importar configuración y utilidades
-from .config import (
-    ARCHIVO_TEST,
-    ARCHIVO_PREDICCIONES,
-    MODELO_RIDGE_PATH,
-    VARIABLE_OBJETIVO,
-    MENSAJES
-)
-from .utils import (
-    cargar_dataframe,
-    guardar_dataframe,
-    cargar_pickle,
-    imprimir_separador,
-    limpiar_memoria
-)
+import importlib
+config = importlib.import_module('src.00_config')
+utils = importlib.import_module('src.00_utils')
+
+# Extraer funciones y constantes necesarias
+ARCHIVO_TEST = config.ARCHIVO_TEST
+ARCHIVO_PREDICCIONES = config.ARCHIVO_PREDICCIONES
+MODELO_RIDGE_PATH = config.MODELO_RIDGE_PATH
+VARIABLE_OBJETIVO = config.VARIABLE_OBJETIVO
+MENSAJES = config.MENSAJES
+
+cargar_dataframe = utils.cargar_dataframe
+guardar_dataframe = utils.guardar_dataframe
+cargar_pickle = utils.cargar_pickle
+imprimir_separador = utils.imprimir_separador
+limpiar_memoria = utils.limpiar_memoria
 
 def cargar_modelo_entrenado():
     """

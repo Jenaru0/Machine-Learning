@@ -32,26 +32,28 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 # Importar configuración y utilidades
-from .config import (
-    ARCHIVO_TRAIN,
-    ARCHIVO_TEST,
-    ARCHIVO_PREDICCIONES,
-    MODELO_RIDGE_PATH,
-    ALPHAS_RIDGE,
-    ALPHAS_LASSO,
-    MAX_ITER_LASSO,
-    CV_FOLDS,
-    MEJOR_ALPHA_RIDGE,
-    MENSAJES,
-    FIGSIZE_LARGE
-)
-from .utils import (
-    cargar_dataframe,
-    guardar_dataframe,
-    guardar_pickle,
-    imprimir_separador,
-    limpiar_memoria
-)
+import importlib
+config = importlib.import_module('src.00_config')
+utils = importlib.import_module('src.00_utils')
+
+# Extraer funciones y constantes necesarias
+ARCHIVO_TRAIN = config.ARCHIVO_TRAIN
+ARCHIVO_TEST = config.ARCHIVO_TEST
+ARCHIVO_PREDICCIONES = config.ARCHIVO_PREDICCIONES
+MODELO_RIDGE_PATH = config.MODELO_RIDGE_PATH
+ALPHAS_RIDGE = config.ALPHAS_RIDGE
+ALPHAS_LASSO = config.ALPHAS_LASSO
+MAX_ITER_LASSO = config.MAX_ITER_LASSO
+CV_FOLDS = config.CV_FOLDS
+MEJOR_ALPHA_RIDGE = config.MEJOR_ALPHA_RIDGE
+MENSAJES = config.MENSAJES
+FIGSIZE_LARGE = config.FIGSIZE_LARGE
+
+cargar_dataframe = utils.cargar_dataframe
+guardar_dataframe = utils.guardar_dataframe
+guardar_pickle = utils.guardar_pickle
+imprimir_separador = utils.imprimir_separador
+limpiar_memoria = utils.limpiar_memoria
 
 def entrenar_regresion_lineal_simple() -> Dict[str, Any]:
     """

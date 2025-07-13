@@ -22,17 +22,18 @@ from pathlib import Path
 from typing import Optional
 
 # Importar configuración y utilidades
-from .config import (
-    ARCHIVO_DATOS_ORIGINAL, 
-    ARCHIVO_REPORTE_EDA,
-    MENSAJES
-)
-from .utils import (
-    cargar_dataframe, 
-    mostrar_info_dataframe, 
-    imprimir_separador,
-    limpiar_memoria
-)
+import importlib
+config = importlib.import_module('src.00_config')
+utils = importlib.import_module('src.00_utils')
+
+# Extraer funciones y constantes necesarias
+ARCHIVO_DATOS_ORIGINAL = config.ARCHIVO_DATOS_ORIGINAL
+ARCHIVO_REPORTE_EDA = config.ARCHIVO_REPORTE_EDA
+MENSAJES = config.MENSAJES
+cargar_dataframe = utils.cargar_dataframe
+mostrar_info_dataframe = utils.mostrar_info_dataframe
+imprimir_separador = utils.imprimir_separador
+limpiar_memoria = utils.limpiar_memoria
 
 def cargar_datos_originales() -> pd.DataFrame:
     """

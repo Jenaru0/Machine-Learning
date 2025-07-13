@@ -22,24 +22,27 @@ from pathlib import Path
 from typing import Tuple
 
 # Importar configuración y utilidades
-from .config import (
-    COLUMNAS_A_ELIMINAR,
-    VARIABLES_CATEGORICAS,
-    VARIABLES_NUMERICAS,
-    VARIABLE_OBJETIVO,
-    ARCHIVO_DATOS_TRANSFORMADOS,
-    ARCHIVO_TRAIN,
-    ARCHIVO_TEST,
-    TEST_SIZE,
-    RANDOM_STATE,
-    MENSAJES
-)
-from .utils import (
-    cargar_dataframe,
-    guardar_dataframe,
-    imprimir_separador,
-    limpiar_memoria
-)
+import importlib
+config = importlib.import_module('src.00_config')
+utils = importlib.import_module('src.00_utils')
+
+# Extraer funciones y constantes necesarias
+PROCESADOS_DIR = config.PROCESADOS_DIR
+COLUMNAS_A_ELIMINAR = config.COLUMNAS_A_ELIMINAR
+VARIABLES_CATEGORICAS = config.VARIABLES_CATEGORICAS
+VARIABLES_NUMERICAS = config.VARIABLES_NUMERICAS
+VARIABLE_OBJETIVO = config.VARIABLE_OBJETIVO
+ARCHIVO_DATOS_TRANSFORMADOS = config.ARCHIVO_DATOS_TRANSFORMADOS
+ARCHIVO_TRAIN = config.ARCHIVO_TRAIN
+ARCHIVO_TEST = config.ARCHIVO_TEST
+TEST_SIZE = config.TEST_SIZE
+RANDOM_STATE = config.RANDOM_STATE
+MENSAJES = config.MENSAJES
+
+cargar_dataframe = utils.cargar_dataframe
+guardar_dataframe = utils.guardar_dataframe
+imprimir_separador = utils.imprimir_separador
+limpiar_memoria = utils.limpiar_memoria
 
 def limpiar_datos(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -417,9 +420,36 @@ def ejecutar_preprocesamiento_completo(df_original: pd.DataFrame) -> Tuple[pd.Da
         logging.error(f"❌ Error en preprocesamiento: {str(e)}")
         raise
 
+def cargar_datos_entrenamiento() -> tuple:
+    """
+    Carga los datos de entrenamiento y prueba procesados.
+    
+    Returns:
+        tuple: X_train, X_test, y_train, y_test
+    """
+    from sklearn.preprocessing import StandardScaler
+    
+    # Cargar datasets procesados
+    train_df = cargar_dataframe(PROCESADOS_DIR / ARCHIVO_TRAIN)
+    test_df = cargar_dataframe(PROCESADOS_DIR / ARCHIVO_TEST)
+    
+    # Separar características y variable objetivo
+    X_train = train_df.drop(columns=[VARIABLE_OBJETIVO])
+    y_train = train_df[VARIABLE_OBJETIVO]
+    X_test = test_df.drop(columns=[VARIABLE_OBJETIVO])
+    y_test = test_df[VARIABLE_OBJETIVO]
+    
+    # Escalar datos
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    
+    return X_train_scaled, X_test_scaled, y_train, y_test
+
 def main():
     """Función principal para ejecutar el preprocesamiento."""
-    from .eda import cargar_datos_originales
+    eda = importlib.import_module('src.01_eda')
+    cargar_datos_originales = eda.cargar_datos_originales
     
     # Cargar datos originales
     df_original = cargar_datos_originales()

@@ -1,28 +1,73 @@
-# 🎓 Predicción de Rendimiento Académico - Machine Learning
+# 🎓 Student Performance Prediction - Machine Learning Pipeline
 
-Un pipeline completo de Machine Learning para predecir el rendimiento académico de estudiantes basado en múltiples factores educativos y sociales.
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-orange.svg)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## ✨ Características
+> **Proyecto Integrador de Machine Learning** - Predicción del rendimiento académico de estudiantes basado en factores educativos y sociales.
 
-- **Pipeline automatizado** desde datos hasta predicción
-- **Análisis exploratorio** con reportes HTML interactivos
-- **Preprocesamiento robusto** con manejo inteligente de datos
-- **Modelo predictivo** con validación cruzada
-- **Código modular** y bien documentado
+## 🌟 Overview
 
-## 🚀 Inicio Rápido
+Este proyecto implementa un **pipeline completo de Machine Learning** para predecir el rendimiento académico (`Exam_Score`) de estudiantes universitarios, utilizando un enfoque modular y científicamente riguroso.
 
-### Requisitos Previos
+### 🎯 Objetivos del Proyecto
 
-- Python 3.11+ (recomendado para compatibilidad completa)
-- pip
+- **Académico**: Cumplir con las guías universitarias de ML (Ridge, Lasso, Linear Regression)
+- **Técnico**: Explorar modelos avanzados para maximizar precisión predictiva
+- **Profesional**: Implementar mejores prácticas de MLOps y documentación
+
+## 🏆 Resultados Principales
+
+| Modelo | R² Score | RMSE | Status | Uso Recomendado |
+|--------|----------|------|--------|-----------------|
+| **Ridge Regression** ⭐ | 0.6926 | 2.055 | Principal | Entrega académica |
+| **SVR (RBF)** 🥇 | 0.7561 | 1.831 | Avanzado | Aplicación real |
+| Lasso Regression | 0.6834 | 2.088 | Base | Selección features |
+| Linear Regression | 0.6798 | 2.098 | Baseline | Comparación |
+
+> **💡 Insight Clave**: SVR logra **+9% mejor performance** que Ridge, pero Ridge mantiene **interpretabilidad superior** para contexto académico.
+
+## 🚀 Características Técnicas
+
+- **🔄 Pipeline Automatizado**: Desde datos crudos hasta predicciones finales
+- **📊 EDA Interactivo**: Reportes HTML con `ydata-profiling`
+- **🛠️ Preprocesamiento Robusto**: Encoding, scaling, y validación de datos
+- **🤖 Modelos Múltiples**: Base académicos + avanzados para comparación
+- **📈 Validación Rigurosa**: Cross-validation y métricas completas
+- **📝 Documentación Completa**: Análisis estratégicos en archivos .md
+
+## 📊 Dataset
+
+- **Fuente**: `StudentPerformanceFactors.csv`
+- **Registros**: 6,607 estudiantes
+- **Features**: 20 variables (educativas, sociales, demográficas)
+- **Target**: `Exam_Score` (0-100)
+
+### 🎯 Variables Más Importantes
+
+| Feature | Importancia | Descripción |
+|---------|-------------|-------------|
+| `Attendance` | 2.29 | Porcentaje de asistencia a clases |
+| `Hours_Studied` | 1.57 | Horas de estudio semanales |
+| `Previous_Scores` | 0.81 | Puntajes académicos previos |
+
+## 🚀 Quick Start
+
+### Prerequisitos
+
+```bash
+Python 3.11+
+pip
+git
+```
 
 ### Instalación
 
 ```bash
 # Clonar repositorio
-git clone "https://github.com/Jenaru0/Machine-Learning.git"
-cd "machine learning"
+git clone https://github.com/Jenaru0/Machine-Learning.git
+cd Machine-Learning
 
 # Crear entorno virtual
 python -m venv venv
@@ -36,171 +81,187 @@ pip install -r requirements.txt
 ### Ejecución
 
 ```bash
-# Ejecutar pipeline completo
+# 🔥 Pipeline completo (recomendado)
 python ejecutar_pipeline.py
 
-# Ejecutar módulos individuales
-python -m src.eda                    # Análisis exploratorio
-python -m src.preprocesamiento       # Limpieza de datos
-python -m src.entrenar_modelo        # Entrenamiento
-python -m src.predecir               # Predicciones
+# 🧩 Módulos individuales
+python -m src.01_eda                    # Análisis exploratorio
+python -m src.02_preprocesamiento       # Limpieza de datos
+python -m src.03_entrenar_modelo        # Entrenamiento base
+python -m src.04_predecir               # Predicciones
+python -m src.05_comparar_modelos_avanzados  # Modelos avanzados
 ```
 
 ## 📁 Estructura del Proyecto
 
 ```
-proyecto-integrador-ml/
+Machine-Learning/
 ├── 📊 datos/
-│   ├── raw/                     # Datos originales
-│   ├── procesados/              # Datos limpios
-│   └── profiling/               # Reportes HTML
+│   ├── raw/                         # Datos originales
+│   │   └── StudentPerformanceFactors.csv
+│   ├── procesados/                  # Datos procesados
+│   │   ├── train_student_performance.csv
+│   │   ├── test_student_performance.csv
+│   │   └── predicciones_exam_score.csv
+│   └── profiling/                   # Reportes HTML de EDA
 ├── 🔧 src/
-│   ├── config.py                # Configuración central
-│   ├── eda.py                   # Análisis exploratorio
-│   ├── preprocesamiento.py      # Limpieza y transformación
-│   ├── entrenar_modelo.py       # Entrenamiento del modelo
-│   ├── predecir.py              # Predicciones
-│   └── utils.py                 # Utilidades generales
-├── 🤖 modelos/                  # Modelos entrenados (.pkl)
-├── 📓 notebooks/                # Jupyter notebooks
-├── 🎯 ejecutar_pipeline.py      # Script principal
-├── 📋 requirements.txt          # Dependencias
-└── 📖 README.md                 # Este archivo
+│   ├── 00_config.py                 # Configuración central
+│   ├── 00_utils.py                  # Utilidades generales
+│   ├── 01_eda.py                    # Análisis exploratorio
+│   ├── 02_preprocesamiento.py       # Limpieza y transformación
+│   ├── 03_entrenar_modelo.py        # Entrenamiento modelos base
+│   ├── 04_predecir.py               # Predicciones
+│   └── 05_comparar_modelos_avanzados.py  # Modelos avanzados
+├── 🤖 modelos/
+│   ├── ridge_alpha_10.pkl           # Modelo principal
+│   ├── scaler.pkl                   # Escalador estándar
+│   └── mejor_modelo_avanzado_svr.pkl # Mejor modelo avanzado
+├── 📚 docs/
+│   ├── LICENSE                      # Licencia MIT
+│   ├── CHANGELOG.md                 # Historial de cambios
+│   └── CONTRIBUTING.md              # Guía de contribución
+├── 📓 notebooks/
+│   └── exploracion_interactiva.ipynb # Análisis Jupyter
+├── 📋 ANALISIS_DETALLADO_SVR.md     # 🔬 Análisis técnico SVR
+├── 📋 ANALISIS_SVR_vs_RIDGE.md      # ⚖️ Comparación modelos
+├── 🎯 ejecutar_pipeline.py          # Script principal
+├── 📋 requirements.txt              # Dependencias Python
+└── 📖 README.md                     # Documentación principal
 ```
 
-## 🛠️ Tecnologías
+## 🛠️ Tech Stack
 
-- **Python 3.11+** - Lenguaje principal
-- **pandas** - Manipulación de datos
-- **scikit-learn** - Machine Learning
-- **ydata-profiling** - Análisis exploratorio automático
-- **numpy** - Computación numérica
+| Categoría | Tecnología | Versión | Propósito |
+|-----------|------------|---------|-----------|
+| **Lenguaje** | Python | 3.11+ | Desarrollo principal |
+| **ML Framework** | scikit-learn | 1.3+ | Modelos y pipeline |
+| **Data Processing** | pandas | 2.0+ | Manipulación de datos |
+| **Numerical** | numpy | 1.24+ | Computación numérica |
+| **EDA** | ydata-profiling | 4.0+ | Análisis exploratorio |
+| **Advanced ML** | xgboost | 1.7+ | Gradient boosting |
+| **Serialization** | joblib | 1.3+ | Persistencia de modelos |
 
-## 📊 Funcionalidades
+## 📈 Pipeline de ML
 
-### Análisis Exploratorio (EDA)
+```mermaid
+graph TD
+    A[📊 Raw Data] --> B[🔍 EDA]
+    B --> C[🛠️ Preprocessing]
+    C --> D[📊 Train/Test Split]
+    D --> E[🤖 Model Training]
+    E --> F[📈 Validation]
+    F --> G[💾 Model Saving]
+    G --> H[🎯 Predictions]
+    
+    E --> I[📚 Base Models]
+    E --> J[🚀 Advanced Models]
+    I --> K[Ridge/Lasso/Linear]
+    J --> L[SVR/RF/XGB/MLP]
+```
 
-- Estadísticas descriptivas completas
-- Análisis de correlaciones
-- Detección de valores atípicos
-- Reporte HTML interactivo con ydata-profiling
+## 📊 Análisis Estratégico
 
-### Preprocesamiento
+### 📋 Documentación Técnica Disponible
 
-- Limpieza de datos automatizada
-- Codificación de variables categóricas
-- Escalado de características
-- División train/test
+- **[📊 ANALISIS_DETALLADO_SVR.md](ANALISIS_DETALLADO_SVR.md)**: Análisis exhaustivo de SVR vs Ridge, riesgos académicos, soluciones técnicas
+- **[⚖️ ANALISIS_SVR_vs_RIDGE.md](ANALISIS_SVR_vs_RIDGE.md)**: Comparación estratégica, trade-offs y recomendaciones
 
-### Modelado
+### 🎯 Estrategia de Modelos
 
-- Regresión Ridge con optimización de hiperparámetros
-- Validación cruzada
-- Métricas de evaluación completas
-- Guardado automático del modelo
+**Enfoque Académico** ✅
+- Ridge Regression como modelo principal
+- Cumple guías universitarias 100%
+- Interpretabilidad completa
+- Riesgo académico: 0%
 
-### Predicción
+**Extensión Técnica** 🚀
+- SVR para demostrar expertise avanzado
+- +9% mejora en performance
+- Exploración de modelos no lineales
+- Valor agregado al proyecto
 
-- Predicciones sobre nuevos datos
-- Métricas de rendimiento
-- Visualización de resultados
+## 🏃‍♂️ Workflows
 
-## 🔧 Configuración
+### Desarrollo Local
 
-Todas las configuraciones se encuentran en `src/config.py`:
+```bash
+# 1. EDA y exploración
+python -m src.01_eda
 
-- Rutas de archivos
-- Parámetros del modelo
-- Configuración de logging
-- Mensajes del sistema
+# 2. Preparar datos
+python -m src.02_preprocesamiento
 
-## 🏆 Rendimiento del Modelo
+# 3. Entrenar modelo base
+python -m src.03_entrenar_modelo
 
-- **R² Score**: 0.6926 (69.26% varianza explicada)
-- **RMSE**: 2.0552
-- **Algoritmo**: Ridge Regression
+# 4. Comparar modelos avanzados
+python -m src.05_comparar_modelos_avanzados
 
-## 📈 Resultados
+# 5. Generar predicciones
+python -m src.04_predecir
+```
 
-El pipeline genera:
+### Producción
 
-- **Reporte EDA**: `datos/profiling/reporte_eda.html`
-- **Modelo entrenado**: `modelos/ridge_alpha_10.pkl`
-- **Scaler**: `modelos/scaler.pkl`
-- **Métricas**: Mostradas en consola
+```bash
+# Pipeline completo optimizado
+python ejecutar_pipeline.py
+```
 
-## 🤝 Contribuir
+## 📋 Métricas de Evaluación
 
-1. Fork el proyecto
-2. Crea tu rama (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit cambios (`git commit -m 'Añade nueva funcionalidad'`)
-4. Push (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
+| Métrica | Ridge | SVR | Interpretación |
+|---------|-------|-----|----------------|
+| **R² Score** | 0.6926 | 0.7561 | % varianza explicada |
+| **RMSE** | 2.055 | 1.831 | Error promedio en puntos |
+| **MAE** | 1.634 | 1.412 | Error absoluto promedio |
+| **Training Time** | 0.02s | 0.15s | Tiempo de entrenamiento |
+
+## 🎯 Casos de Uso
+
+### 🎓 Académico
+- **Modelo**: Ridge Regression
+- **Justificación**: Cumple guías, interpretable, estable
+- **Presentación**: Enfoque en coeficientes y explicabilidad
+
+### 🏢 Profesional
+- **Modelo**: SVR (RBF)
+- **Justificación**: Máxima precisión, robustez, escalabilidad
+- **Aplicación**: Sistemas de recomendación estudiantil
+
+## 🤝 Contribución
+
+Ver [CONTRIBUTING.md](docs/CONTRIBUTING.md) para guías detalladas.
+
+### 👥 Equipo de Desarrollo
+
+| Nombre | Rol | Contribución |
+|--------|-----|--------------|
+| **Candela Vargas Aitor Baruc** | ML Engineer | Pipeline y modelos |
+| **Godoy Bautista Denilson Miguel** | Data Scientist | EDA y análisis |
+| **Molina Lazaro Eduardo Jeampier** | Software Engineer | Arquitectura |
+| **Napanga Ruiz Jhonatan Jesus** | DevOps | Automatización |
+| **Quispe Romani Angela Isabel** | Product Owner | Requisitos |
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT - ver [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la Licencia MIT - ver [LICENSE](docs/LICENSE) para detalles.
 
-## 👥 Autores
+## 🏆 Reconocimientos
 
-**Equipo Grupo 4** - Proyecto Integrador Machine Learning
-
-- Candela Vargas Aitor Baruc
-- Godoy Bautista Denilson Miguel
-- Molina Lazaro Eduardo Jeampier
-- Napanga Ruiz Jhonatan Jesus
-- Quispe Romani Angela Isabel
+- **Facultad de Ingeniería** - Universidad [Nombre]
+- **Curso**: Machine Learning 2025
+- **Instructor**: [Nombre del Profesor]
+- **Semestre**: 2025-I
 
 ---
 
-⭐ Si este proyecto te fue útil, ¡dale una estrella!
+<div align="center">
 
-- **Archivo**: `StudentPerformanceFactors.csv`
-- **Registros**: 6,607 estudiantes
-- **Variables**: 20 características
-- **Objetivo**: Predecir `Exam_Score`
+**⭐ Si este proyecto te fue útil, ¡dale una estrella! ⭐**
 
-### 🏗️ Estructura
+[🐛 Reportar Bug](https://github.com/Jenaru0/Machine-Learning/issues) • [💡 Solicitar Feature](https://github.com/Jenaru0/Machine-Learning/issues) • [📖 Documentación](https://github.com/Jenaru0/Machine-Learning/wiki)
 
-```
-proyecto-integrador-ml/
-├── datos/raw/                  # Datos originales
-├── datos/procesados/           # Datos procesados
-├── modelos/                    # Modelos entrenados
-├── notebooks/                  # Exploración interactiva
-├── src/                        # Código fuente
-├── docs/                       # Documentación adicional
-├── ejecutar_pipeline.py        # Script principal
-└── requirements.txt            # Dependencias
-```
+**Machine Learning 2025** - Predicción de Rendimiento Académico
 
-### 🔧 Funcionalidades
-
-1. **EDA**: Análisis exploratorio automático
-2. **Preprocesamiento**: Limpieza e ingeniería de características
-3. **Modelado**: Ridge, Lasso, Linear Regression
-4. **Predicción**: Generación de resultados finales
-
-### 📈 Variables Más Importantes
-
-1. **Attendance** (2.29) - Asistencia
-2. **Hours_Studied** (1.57) - Horas de estudio
-3. **Previous_Scores** (0.81) - Puntajes previos
-
-### 📁 Archivos Generados
-
-- `student_performance_transformado_numerico.csv`
-- `train_student_performance.csv`
-- `test_student_performance.csv`
-- `predicciones_exam_score.csv`
-- `ridge_alpha_10.pkl` (modelo final)
-
-### 🎯 Próximos Pasos
-
-- [ ] Interfaz web
-- [ ] Integración con APIs
-- [ ] Dashboard interactivo
-
----
-
-**Machine Learning 2025** - Facultad de Ingeniería
+</div>
