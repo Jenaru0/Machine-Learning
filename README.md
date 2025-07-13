@@ -24,7 +24,8 @@ Un pipeline completo de Machine Learning para predecir el rendimiento académico
 git clone "https://github.com/Jenaru0/Machine-Learning.git"
 cd "machine learning"
 
-# Crear entorno virtual
+# Crear entorno virtualpy --version
+
 python -m venv venv
 venv\Scripts\activate    # Windows
 # source venv/bin/activate  # Linux/Mac
@@ -33,7 +34,7 @@ venv\Scripts\activate    # Windows
 pip install -r requirements.txt
 ```
 
-### Ejecución
+### Ejecucióna
 
 ```bash
 # Ejecutar pipeline completo
