@@ -254,9 +254,9 @@ Este proyecto está bajo la Licencia MIT - ver [LICENSE](docs/LICENSE) para deta
 
 ## 🏆 Reconocimientos
 
-- **Facultad de Ingeniería** - Universidad [Nombre]
+- **Facultad de Ingeniería** - Universidad Nacional de Cañete
 - **Curso**: Machine Learning 2025
-- **Instructor**: [Nombre del Profesor]
+- **Instructor**: Magaly Roxana Arangüena Yllanes
 - **Semestre**: 2025-I
 
 ---
