@@ -246,6 +246,7 @@ Ver [CONTRIBUTING.md](docs/CONTRIBUTING.md) para guías detalladas.
 | **Godoy Bautista Denilson Miguel** | Data Scientist                  | Análisis exploratorio de datos                               |
 | **Molina Lazaro Eduardo Jeampier** | Quality Assurance               | Testing y validación                                         |
 | **Quispe Romani Angela Isabel**    | Software Engineer               | Desarrollo de módulos                                        |
+| **Quito Gamboa Jhon Neper**        | DevOps Engineer                 | Deployment y automatización                                  |
 
 ## 📄 Licencia
 
